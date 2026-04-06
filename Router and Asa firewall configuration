@@ -1,10 +1,38 @@
 TC Router (ISR4331) Configuration
+
 enable
 configure terminal
 
 interface GigabitEthernet0/0/0
 ip address 10.0.0.2 255.255.255.0
 no shutdown
+
+end
+
+ASA Firewall Configuration
+
+enable
+configure terminal
+
+interface vlan 1
+nameif inside
+ip address 192.168.1.1 255.255.255.0
+security-level 100
+no shutdown
+
+interface vlan 2
+nameif outside
+ip address 10.0.0.1 255.255.255.0
+security-level 0
+no shutdown
+
+interface ethernet0/0
+switchport access vlan 2
+
+interface ethernet0/1
+switchport access vlan 1
+
+route outside 0.0.0.0 0.0.0.0 10.0.0.2
 
 end
 
