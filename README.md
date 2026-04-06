@@ -3,6 +3,7 @@
 
 The ATC Router (ISR4331) is responsible for managing communication between the internal network and external network.
 •	Configured GigabitEthernet interface: 
+
 o	G0/0/0 → IP Address: 10.0.0.2/24 (Connected to ASA Firewall) 
 •	Enabled the interface using: 
 o	no shutdown 
